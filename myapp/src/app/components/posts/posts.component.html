@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <hr>
+  <div class="row">
+
+    <div class="col-6" *ngFor="let post of posts">
+      <div class="card" [ngClass]= "{'bg-success': post.id === 2, 'bg-secondary': post.id === 5}">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="catr-text">{{ post.text }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="alert alert-info" *ngIf="!posts.length">Постов не найденно! </div>
+    <!--<div class="alert alert-info" [hidden]="posts.length">Постов не найденно! </div>-->
+
+  </div>
+  <div class="container mt-5 mb-5">
+        <button (click)="toggleInfoBlock()" >{{ infoIsShow ? 'Hide info': 'Show info' }}</button>
+
+        <div class="info" *ngIf="infoIsShow">
+
+            <p>Using color to add meaning only provides a visual indication,
+          which will not be conveyed to users of assistive technologies
+          – such as screen readers. </p>
+
+        </div>
+    </div>
+  <hr>
+</div>
